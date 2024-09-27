@@ -6,7 +6,11 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'npm install' 
+                nodejs(nodeJSInstallationName: 'node20') {
+                    sh 'npm -v' 
+                    sh 'node -v'
+                    sh 'npm install' 
+                }
             }
         }
     }
